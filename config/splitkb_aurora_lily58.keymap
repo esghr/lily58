@@ -46,17 +46,17 @@
 
         default_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
-// |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   | BSPC  |
+// |  TAB  |  Y  |  J  |  U   |  A   |  Q   |                   |  P   |  B    |  M    |  L   |   F   |       |
+// |   Z   |  C  |  S  |  I   |  E   |  O   |                   |  D   |  T    |  N    |  R   |   H   |   ß   |
+// |  GUI  |  V  |  X  |  Ü   |  Ä   |  Ö   |        |  |       |  W   |  G    |  ,    |  .   |   K   |   -   |                                                                                                                                                                                        12z    34   |  M    |  ,    |  .   |   /   |   -   |
+//                     | ALT  | GUI  | Layer|  LSHFT |  | SPACE | Layer| BSPC  | GUI   |
             bindings = <
-&kp ESC      &kp N1 &kp N2 &kp N3  &kp N4  &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp GRAVE
-&tabesc_bspc &kp Z  &kp J &kp U    &kp A   &kp Q                      &kp P &kp B &kp M     &kp L   &kp F &kp BSPC
-&kp Y        &kp C  &kp S &kp I    &kp E   &kp O                      &kp D &kp T &kp N     &kp R   &kp H &kp MINUS 
-&gui_ralt    &kp V  &kp X &kp LBKT &kp SQT &kp SEMI &trans    &trans  &kp W &kp G &kp COMMA &kp DOT &kp K &mt RALT SLASH
-                        &trans &ctrlret_spc &mo 1 &kp LSHFT   &kp SPACE &mo 1 &ctrlspc_shftret &trans
+&kp ESC &kp N1 &kp N2 &kp N3   &kp N4  &kp N5                     &kp N6 &kp N7 &kp N8    &kp N9  &kp N0 &kp BSPC
+&kp TAB &kp Z  &kp J  &kp U    &kp A   &kp Q                      &kp P  &kp B  &kp M     &kp L   &kp F  &trans
+&kp Y   &kp C  &kp S  &kp I    &kp E   &kp O                      &kp D  &kp T  &kp N     &kp R   &kp H  &kp MINUS 
+&kp GUI &kp V  &kp X  &kp LBKT &kp SQT &kp SEMI &trans    &trans  &kp W  &kp G  &kp COMMA &kp DOT &kp K  &mt RALT SLASH
+                        &kp RALT &ctrlret_spc &mo 1 &kp LSHFT   &kp SPACE &mo 1 &ctrlspc_shftret &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
