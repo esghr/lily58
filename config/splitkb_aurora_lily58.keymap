@@ -9,7 +9,38 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
+
+    &mt {
+    tapping-term-ms = <200>;
+ };
+
 / {
+        behaviors {
+        gui_ralt: gui_ralt_tabdance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp LGUI>, <&kp RALT>;
+        };
+        ctrlspc_shftret: ctrlspc_shftret_tabdance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&mt LCTRL SPC>, <&mt LSHFT RET>;
+        };
+        ctrlret_spc: ctrlret_spc_tabdance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&mt LCTRL RET>, <&kp SPACE>;
+        };
+        tabesc_bspc: tabesc_bspc_tabdance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&mt TAB ESC>, <&kp BSPC>;
+        };
+    };
     keymap {
         compatible = "zmk,keymap";
 
@@ -21,11 +52,11 @@
 // | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
 //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
             bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp GRAVE
-&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp MINUS
-&kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &kp LBKT   &kp RBKT &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp LALT &kp LGUI &mo 1  &kp SPACE  &kp RET  &mo 2  &kp BSPC &kp RGUI
+&kp ESC      &kp N1 &kp N2 &kp N3  &kp N4  &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp GRAVE
+&tabesc_bspc &kp Z  &kp J &kp U    &kp A   &kp Q                      &kp P &kp B &kp M     &kp L   &kp F &kp BSPC
+&kp Y        &kp C  &kp S &kp I    &kp E   &kp O                      &kp D &kp T &kp N     &kp R   &kp H &kp MINUS 
+&gui_ralt    &kp V  &kp X &kp LBKT &kp SQT &kp SEMI &trans    &trans  &kp W &kp G &kp COMMA &kp DOT &kp K &mt RALT SLASH
+                        &trans &ctrlret_spc &mo 1 &kp LSHFT   &kp SPACE &mo 1 &ctrlspc_shftret &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -39,11 +70,11 @@
 // |       |     |     |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
 //                     |      |      |      |        |  |       |      |       |       |
             bindings = <
-&bt BT_CLR &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3 &bt BT_SEL 4                 &trans    &trans    &trans          &trans    &trans    &trans
-&kp F1     &kp F2           &kp F3            &kp F4            &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9          &kp F10   &kp F11   &kp F12
-&kp GRAVE  &kp EXCL         &kp AT            &kp HASH          &kp DOLLAR   &kp PRCNT                    &kp CARET &kp AMPS  &kp STAR         &kp LPAR  &kp RPAR  &kp TILDE
-&trans     &ext_power EP_ON &ext_power EP_OFF &ext_power EP_TOG &trans       &trans    &trans   &trans    &trans    &kp MINUS &kp PLUS        &kp LBRC  &kp RBRC  &kp PIPE
-                                              &trans            &trans       &trans    &trans   &trans    &trans    &trans    &trans
+&bt BT_CLR     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                    &trans  &trans   &trans   &trans   &trans    &trans
+&tabesc_bspc   &mt F6 N6    &mt F7 N7    &mt F8 N8    &mt F9 N9    &mt F10 N0                      &trans  &trans   &trans   &trans   &trans    &kp BSPC 
+&mt PG_UP HOME &kp LEFT     &kp UP       &kp DOWN     &kp RIGHT    &mt PG_DN END                   &kp F11 &kp NUHS &kp NUBS &kp RBKT &kp GRAVE &kp F12
+&gui_ralt      &mt F1 N1    &mt F2 N2    &mt F3 N3    &mt F4 N4    &mt F5 N5     &trans    &trans  &trans  &trans   &trans   &trans   &trans    &kp RALT
+                                     &trans &ctrlret_spc &mo 1 &kp LSHFT       &kp SPACE &mo 1 &ctrlspc_shftret &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
