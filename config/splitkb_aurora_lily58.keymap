@@ -20,17 +20,17 @@
 
         default_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3  |   4    |  5  |                  |  6   |  7  |    8   |  9  |  0  |BSPC |
-// |  TAB  |  Y  |  J  |  U  |   A    |  Q  |                  |  P   |  B  |    M   |  L  |  F  |  ^  |
-// |   Z   |  C  |  S  |  I  |   E    |  O  |                  |  D   |  T  |    N   |  R  |  H  |  ß  |
-// |+ / ALT|  V  |  X  |  Ü  |   Ä    |  Ö  |   #   |  |   <   |  W   |  G  |    ,   |  .  |  K  |-/ALT|                                                                                                                                                                                        12z    34   |  M    |  ,    |  .   |   /   |   -   |
+// | ESC |  1  |  2  |  3  |   4    |  5  |                  |  6   |  7  |    8   |  9  |  0  |BSPC |
+// | TAB |  Y  |  J  |  U  |   A    |  Q  |                  |  P   |  B  |    M   |  L  |  F  |  ^  |
+// |  Z  |  C  |  S  |  I  |   E    |  O  |                  |  D   |  T  |    N   |  R  |  H  |  ß  |
+// |+/ALT|  V  |  X  |  Ü  |   Ä    |  Ö  |   #   |  |   <   |  W   |  G  |    ,   |  .  |  K  |-/ALT|                                                                                                                                                                                        12z    34   |  M    |  ,    |  .   |   /   |   -   |
 //                  |RET/LGUI|CTRL/SPC|Layer| LSHFT |  | SPACE | Layer|CTRL |RET/SHFT|
             bindings = <
 &kp ESC       &kp N1 &kp N2 &kp N3   &kp N4  &kp N5                         &kp N6 &kp N7 &kp N8    &kp N9  &kp N0 &kp BSPC
 &kp TAB       &kp Z  &kp J  &kp U    &kp A   &kp Q                          &kp P  &kp B  &kp M     &kp L   &kp F  &kp GRAVE
 &kp Y         &kp C  &kp S  &kp I    &kp E   &kp O                          &kp D  &kp T  &kp N     &kp R   &kp H  &kp MINUS 
 &mt RALT RBKT &kp V  &kp X  &kp LBKT &kp SQT &kp SEMI &kp NUHS    &kp NUBS  &kp W  &kp G  &kp COMMA &kp DOT &kp K  &mt RALT SLASH
-                &mt LGUI RET &mt SPACE LCTRL &mo 1 &kp LSHFT      &kp SPACE &mo 1 &kp LCTRL &mt LSHFT RET
+                &mt LGUI RET &mt LCTRL SPACE &mo 1 &kp LSHFT      &kp SPACE &mo 1 &kp LCTRL &mt LSHFT RET
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
