@@ -24,30 +24,30 @@
 // | TAB |  Y  |  J  |  U  |   A    |  Q  |                  |  P   |  B  |    M   |  L  |  F  |  ^  |
 // |  Z  |  C  |  S  |  I  |   E    |  O  |                  |  D   |  T  |    N   |  R  |  H  |  ß  |
 // |+/ALT|  V  |  X  |  Ü  |   Ä    |  Ö  |   #   |  |   <   |  W   |  G  |    ,   |  .  |  K  |-/ALT|                                                                                                                                                                                        12z    34   |  M    |  ,    |  .   |   /   |   -   |
-//                  |RET/LGUI|CTRL/SPC|Layer| LSHFT |  | SPACE | Layer|CTRL |RET/SHFT|
+//                  |RET/LGUI|CTRL/SPC|Layer| LSHFT |  | SPACE/SHFT |Layer|CTRL/TAB |RET/LGUI|
             bindings = <
 &kp ESC       &kp N1 &kp N2 &kp N3   &kp N4  &kp N5                         &kp N6 &kp N7 &kp N8    &kp N9  &kp N0 &kp BSPC
 &kp TAB       &kp Z  &kp J  &kp U    &kp A   &kp Q                          &kp P  &kp B  &kp M     &kp L   &kp F  &kp GRAVE
 &kp Y         &kp C  &kp S  &kp I    &kp E   &kp O                          &kp D  &kp T  &kp N     &kp R   &kp H  &kp MINUS 
 &mt RALT RBKT &kp V  &kp X  &kp LBKT &kp SQT &kp SEMI &kp NUHS    &kp NUBS  &kp W  &kp G  &kp COMMA &kp DOT &kp K  &mt RALT SLASH
-                &mt LGUI RET &mt LCTRL SPACE &mo 1 &kp LSHFT      &kp SPACE &mo 1 &kp LCTRL &mt LSHFT RET
+                &mt LGUI RET &mt LCTRL SPACE &mo 1 &kp LSHFT      &mt LSHFT SPACE &mo 1 &mt LCTRL TAB &mt LGUI RET
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
         raise_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |  ESC  |  F1 | F2 |  F3 |  F4  |  F5  |                   |  F6  |  F7  |  F8  |  F9  |  F10 | BSPC  |
-// |  TAB  |     |    |     |      |      |                   |      |      | HOME |      |      |       |
-// | BTCLR | BT1 |BT2 | BT3 |  BT4 |  BT5 |                   |PG_UP |  <-  |   ^  |  v   |  ->  |PG_DWN |
-// | RALT  |     |    |     |      |      |  F11   |  |  F12  |      |      |      |  END |      | \/ALT |
-//               |LGUI/RET|CTRL/SPC|      |  LSHFT |  | SPACE |      | CTRL |RET/SHFT|
+// |   ESC   |  F1 | F2  |  F3 |  F4  |  F5  |                   |  F6  |  F7  |   F8   |  F9  |  F10 | BSPC  |
+// |   TAB   |     |PG_UP|     |      |      |                   |      |      |        |      |      |       |
+// |LGUI/HOME| <-  | ^   |  v  |  ->  |  END |                   | BTCLR| BT1  |  BT2   |  BT3 |  BT4 |  BT5  |
+// |   RALT  |     |     |PG_DN|      |      |  F11   |  |  F12  |      |      |        |      |      |  ALT  |
+//               |LGUI/RET|CTRL/SPC |      |  LSHFT |  | SPACE/SHFT|      |CTRL/TAB|RET/LGUI|
             bindings = <
-&kp ESC    &kp F1       &kp F2       &kp F3       &kp F4       &kp F5                                 &kp F6    &kp F7   &kp F8    &kp F9   &kp F10   &kp BSPC
-&kp TAB    &trans       &trans       &trans       &trans       &trans                                 &trans    &trans   &kp HOME  &trans   &trans    &trans
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                           &kp PG_UP &kp LEFT &kp UP    &kp DOWN &kp RIGHT &mt PG_DN END
-&kp RALT   &trans       &trans       &trans       &trans       &trans       &kp F11           &kp F12 &trans    &trans   &trans    &kp END  &trans    &mt RALT BSLH
-                                  &mt LGUI RET &mt LCTRL SPACE &trans       &kp LSHFT       &kp SPACE &trans    &kp LCTRL &mt LSHFT RET
+&kp ESC       &kp F1   &kp F2    &kp F3    &kp F4    &kp F5                           &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp BSPC
+&kp TAB       &trans   &kp PG_UP &trans    &trans    &trans                           &trans &trans &trans &trans &trans &trans
+&mt LGUI HOME &kp LEFT &kp UP    &kp DOWN  &kp RIGHT &kp END                          &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+&kp RALT      &trans   &trans    &kp PG_DN &trans    &trans  &kp F11              &kp F12 &trans &trans &trans &trans &trans &kp RALT
+                    &mt LGUI RET &mt LCTRL SPACE &trans &kp LSHFT          &mt LSHFT SPACE &trans &mt LCTRL TAB &mt LGUI RET
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
